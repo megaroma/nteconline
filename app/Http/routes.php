@@ -11,7 +11,7 @@
 |
 */
 
-
+Route::controller('api', 'ApiController');
 Route::controller('test', 'TestController');
 
 Route::get('/', function () {
