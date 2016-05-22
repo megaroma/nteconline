@@ -8,6 +8,8 @@ use DD\Crud\CrudModel as Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use DD\Crud\Classes\Crud;
+use DB;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -33,6 +35,36 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+
+public static function get_list($filters,$order,$sort,$page) {
+    $order_sql = Crud::get_order_sql($sort,$order,'name');
+    $limit_sql = Crud::get_limit_sql($page);
+    $filters_sql = Crud::get_filters_sql($filters);
+
+    $results = DB::select(
+    '
+    SELECT SQL_CALC_FOUND_ROWS
+      *,
+      (select GROUP_CONCAT(r.name) from roles r, users_roles ur where ur.role_id = r.id and ur.user_id = u.id) as roles
+    FROM
+      users u
+    WHERE 
+      1 AND
+    '.$filters_sql.' 
+    '.$order_sql.'
+    '.$limit_sql
+    );
+
+    $res_total = DB::select("select FOUND_ROWS()  as total");
+
+    return array(
+      'list' =>  json_decode(json_encode($results), true) ,
+      'total' => $res_total[0]->total 
+    );
+
+  } 
+
 
     public function roles() {
         return $this->belongsToMany('App\DB\Role');
