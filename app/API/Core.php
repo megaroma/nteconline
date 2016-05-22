@@ -28,13 +28,13 @@ class Core {
 		return substr(bin2hex($rand ), 0, 32);
 	}
 
-	public static function check_status($api_id,$username,$session_id) {
+	public static function check_status($api_id,$email,$session_id) {
 		$status = true;
 		if(!self::check_api_id($api_id)) {
 			$status = false;
 		}
 
-		$user = User::where('loginname','=',trim($username))->get();
+		$user = User::where('email','=',trim($email))->get();
         if($user->count() > 0) {
         	$user_id = $user[0]->id;
         	$user_logins = User_login::where('user_id' ,'=',$user_id)->orderBy('login_datetime', 'desc')->get();

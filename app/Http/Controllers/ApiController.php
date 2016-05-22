@@ -11,6 +11,7 @@ use App\API\Core as api;
 use App\DB\User_login;
 use App\DB\Package;
 use App\DB\Vault;
+use Auth;
 
 class ApiController extends Controller
 {
@@ -50,33 +51,29 @@ class ApiController extends Controller
         api::log("login request",$_POST);
         $api_id = $request->input('api_id','');
         if(api::check_api_id($api_id)) {
-            $username = $request->input('username','');
+            $email = $request->input('email','');
             $password = $request->input('password','');
             $error = false;
             $message = "ok";
             $session_id = '1';
-            if(($username != '') && ($password != '')) {
-                $user = User::where('loginname','=',trim($username))->get();
-                if($user->count() > 0) {
-                    $db_password = $user[0]->loginpasswd;
-                    if(\Hash::check($password, $db_password)) {
+            if(($email != '') && ($password != '')) {
+  
+                     if (Auth::attempt(['email' => $email, 'password' => $password])) {
+                        $user = Auth::user();
                         $session_id = api::get_session_id();
                         $user_login = new User_login();
                         $user_login->login_datetime = date("Y-m-d H:i:s",strtotime("NOW"));
-                        $user_login->user_id = $user[0]->id;
+                        $user_login->user_id = $user->id;
                         $user_login->session_id = $session_id;
                         $user_login->save();
 
                     } else {
-                        $message = "Password is incorect $password ";
+                        $message = "Password is incorect";
                         $error = true;
                     }
-                } else {
-                    $message = "User is not found";
-                    $error = true;
-                }
+
             } else {
-                $message = "Username or Password is empty";
+                $message = "Email or Password is empty";
                 $error = true;
             }
 
@@ -110,9 +107,9 @@ class ApiController extends Controller
     public function anyStatus(Request $request) {
         api::log("status request",$_POST);
         $api_id = $request->input('api_id','');
-        $username = $request->input('username','');
+        $email = $request->input('email','');
         $session_id = $request->input('session_id','');
-        if(api::check_status($api_id,$username,$session_id)) {
+        if(api::check_status($api_id,$email,$session_id)) {
             $data = array(
                 'status' => 1,
                 'message' => "Ok",
