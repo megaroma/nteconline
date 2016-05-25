@@ -20,6 +20,7 @@
 
     <!-- Custom styles for this template -->
 	<link href="{{url('css/carousel.css')}}" rel="stylesheet">
+	<link href="{{url('css/style.css')}}" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 50px;
@@ -39,74 +40,104 @@
   </head>
 
 
-  <body>
-	  
-	    <nav class="navbar navbar-default">
-      <div class="container">
-        <img src="{{url('img/Ntec_Logo.png')}}" class="img-responsive" alt="Cinque Terre">
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" type="post">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-              {!! csrf_field() !!}
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
-    </nav>
-	  <div class="container">
-	  <div class="col-md-12">
-		  <img src="{{url('img/Ntec_Logo.png')}}" class="img-responsive" alt="Cinque Terre">
-		  <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
+  <body id="main">
+	   <div class="container-fluid">
+	   <div class="row">
+			<img src="{{url('img/Ntec_Logo.png')}}" class="img-responsive" alt="Cinque Terre">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+				  <div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">NTECOnline</a>
+				  </div>
+				  <div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+					  <li class="active"><a href="#">Home</a></li>
+					  <li><a href="#">News</a></li>
+					  <li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+						  <li><a href="#">Action</a></li>
+						  <li><a href="#">Another action</a></li>
+						  <li><a href="#">Something else here</a></li>
+						  <li class="divider"></li>
+						  <li class="dropdown-header">Nav header</li>
+						  <li><a href="#">Separated link</a></li>
+						  <li><a href="#">One more separated link</a></li>
+						</ul>
+					  </li>
+					  <li><a href="#">Photo</a></li>
+					  <li><a href="#">Guest Book</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+					  @if(\Auth::check())
+					  <li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{Auth::user()->name}} <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+						  <li><a href="#" id="dd-auth-top-logout" data-action="{{url('/auth/logout')}}">Logout</a></li>
+						</ul>
+					  </li>             
+					  @else
+					  <li><a href="#">Sign Up</a></li>
+					  <li class="dropdown" id="menuLogin">
+						<a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+						<div class="dropdown-menu" style="width:500px;padding:17px;">
+						  <form class="form-horizontal" id="dd-auth-top-login-form" action="{{url('/auth/login')}}" method="post">
+							<div class="form-group">
+							 <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+							  <div class="col-sm-10">
+								<input type="email" name="dd-auth-email" value="{{ old('dd-auth-email') }}" class="form-control" id="inputEmail" placeholder="Email">
+							  </div>
+						   </div>
+							<div class="form-group">
+							  <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+							  <div class="col-sm-10">
+							   <input type="password" name="dd-auth-password" class="form-control" id="inputPassword" placeholder="Password">
+							 </div>
+						   </div>
+							<div class="form-group">
+							 <div class="col-sm-offset-2 col-sm-10">
+							   <div class="checkbox">
+								 <label>
+								   <input type="checkbox" name="dd-auth-remember" value="1"> Remember
+								 </label>
+							   </div>
+							 </div>
+						   </div>
+						   <div class="form-group">
+							<div class="col-sm-12">
+							  <div class="alert alert-danger" id="dd-auth-top-error-msg" style="display:none;" role="alert"><strong>Error:</strong>Login error<br><a href="#">Forgot password?</a></div>
+							</div>
+						   </div>
+						   <div class="form-group">
+							 <div class="col-sm-2" >
+							   <div style="display:none;" id="dd-auth-top-ajax-loader"><img src="{{url('pics/ajax-loader.gif')}}"></div>
+							 </div>                  
+							 <div class="col-sm-2">
+							  {!! csrf_field() !!}
+							   <button type="submit" class="dd_auth_login_btn btn btn-default" id="dd-auth-top-login-btn">Login</button>
+							   
+							 </div>
+							 <div class="col-sm-8">
+							   Don't have an account? <a href="#">Sign Up</a>
+							 </div>
+						   </div>
+						  </form>
+						</div>
+					  </li>
+					  @endif
+					</ul>
+				  </div><!--/.nav-collapse -->
+				</div><!--/.container-fluid -->
+			</nav>
 		
-	  </div>
-		  
-	  
-	  <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </nav>
-
+		</div>
+		
        @yield('content')
 
       <hr>
