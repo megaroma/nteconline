@@ -14,4 +14,11 @@ class TestController extends Controller
 		return view('index',$data);
 	}
 
+
+	public function anyTest() {
+		$data = array();
+		return view('test',$data);
+	}
+
+
 }
