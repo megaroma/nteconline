@@ -43,21 +43,39 @@
 
 
   <body id="main">
-	<header class="site_header">
-	   <div class="container" id="header_container">
+	   <div class="container-fluid">
 	   <div class="row">
-			<div class="col-md-4 vcenter" id="logo">
-				<img src="{{url('img/Ntec_Logo.png')}}" class="img-responsive" alt="Ntec Logo">
-			</div>
-			<div class="col-md-4 vcenter">
-				<div class="input-group">
-				  <input type="text" class="form-control" placeholder="Search for...">
-				  <span class="input-group-btn">
-					<button class="btn btn-default" type="button">Go!</button>
-				  </span>
-				</div><!-- /input-group -->
-			</div>
-			<div class="col-md-3 vcenter">
+			<img src="{{url('img/Ntec_Logo.png')}}" class="img-responsive" alt="Ntec Logo">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+				  <div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">NTECOnline</a>
+				  </div>
+				  <div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+					  <li class="active"><a href="#">Home</a></li>
+					  <li><a href="#">News</a></li>
+					  <li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+						  <li><a href="#">Action</a></li>
+						  <li><a href="#">Another action</a></li>
+						  <li><a href="#">Something else here</a></li>
+						  <li class="divider"></li>
+						  <li class="dropdown-header">Nav header</li>
+						  <li><a href="#">Separated link</a></li>
+						  <li><a href="#">One more separated link</a></li>
+						</ul>
+					  </li>
+					  <li><a href="#">Photo</a></li>
+					  <li><a href="#">Guest Book</a></li>
+					</ul>
 					<ul class="nav navbar-nav navbar-right">
 					  @if(\Auth::check())
 					  <li class="dropdown">
@@ -116,71 +134,32 @@
 					  </li>
 					  @endif
 					</ul>
-			</div>
-		</div>
-		</div>
-		<div class="container">
-			<div class="row">
-			<nav class="navbar navbar-default">
-				<div class="container-fluid">
-				  <div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					  <span class="sr-only">Toggle navigation</span>
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">NTECOnline</a>
-				  </div>
-				  <div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-					  <li class="active"><a href="#">Home</a></li>
-					  <li><a href="#">News</a></li>
-					  <li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-						  <li><a href="#">Action</a></li>
-						  <li><a href="#">Another action</a></li>
-						  <li><a href="#">Something else here</a></li>
-						  <li class="divider"></li>
-						  <li class="dropdown-header">Nav header</li>
-						  <li><a href="#">Separated link</a></li>
-						  <li><a href="#">One more separated link</a></li>
-						</ul>
-					  </li>
-					  <li><a href="#">Photo</a></li>
-					  <li><a href="#">Guest Book</a></li>
-					</ul>
-
 				  </div><!--/.nav-collapse -->
 				</div><!--/.container-fluid -->
 			</nav>
+
 		</div>
-		</div>
-	</header>
 
        @yield('content')
 
       <hr>
 
 
-      <footer class="site_footer">
-<div class="container">
+      <footer>
+
 	<div class="row">
-		<div class="col-md-3 vcenter">
+		<div class="col-md-3">
 			<img src="{{url('img/Ntec_Logo.png')}}" class="img-responsive" alt="Ntec Logo">
 		</div>
-		<div class="col-md-5 vcenter">
+		<div class="col-md-6">
 		<ul class="list-inline">
 		  <li>Menu 1</li>
 		  <li>Menu 2</li>
 		  <li>Menu 3</li>
-		  <li>Menu 4</li>
-		  <li>Menu 5</li>
 		</ul>
 		<p>&copy; 2015 Company, Inc.</p>
 		</div>
-		<div class="col-md-3 vcenter">
+		<div class="col-md-3">
 			  <a class="btn btn-social-icon btn-lg btn-twitter">
 				<span class="fa fa-twitter"></span>
 			  </a>

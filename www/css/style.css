@@ -1,0 +1,16 @@
+.site_header {
+background-color: #003a6a;
+}
+.site_footer {
+background-color: #003a6a;
+}
+
+#main {
+padding-top: 0px;
+}
+
+.vcenter {
+  display: inline-block;
+  float: none;
+  vertical-align: middle;
+}
