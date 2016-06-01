@@ -13,7 +13,6 @@
 
 Route::controller('api', 'ApiController');
 Route::controller('test', 'TestController');
+Route::controller('auth', 'NTECAuthController');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::controller('/', 'IndexController');

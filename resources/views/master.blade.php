@@ -61,54 +61,57 @@
 					<ul class="nav navbar-nav navbar-right">
 					  @if(\Auth::check())
 					  <li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{Auth::user()->name}} <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{\Auth::user()->name}} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-						  <li><a href="#" id="dd-auth-top-logout" data-action="{{url('/auth/logout')}}">Logout</a></li>
+							@if(\Auth::user()->hasRole('admin'))
+							<li><a href="#" id="ntec-auth-top-admin" data-action="{{url('/admin')}}">Admin Panel</a></li>
+							@endif
+						  	<li><a href="#" id="ntec-auth-top-logout" data-action="{{url('/auth/logout')}}">Logout</a></li>
 						</ul>
 					  </li>
 					  @else
-					  <li><a href="#">Sign Up</a></li>
+					  <li><a href="{{url('/register')}}">Sign Up</a></li>
 					  <li class="dropdown" id="menuLogin">
 						<a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
 						<div class="dropdown-menu" style="width:500px;padding:17px;">
-						  <form class="form-horizontal" id="dd-auth-top-login-form" action="{{url('/auth/login')}}" method="post">
+						  <form class="form-horizontal" id="ntec-auth-top-login-form" action="{{url('/auth/login')}}" method="post">
 							<div class="form-group">
 							 <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 							  <div class="col-sm-10">
-								<input type="email" name="dd-auth-email" value="{{ old('dd-auth-email') }}" class="form-control" id="inputEmail" placeholder="Email">
+								<input type="email" name="ntec-auth-email" value="{{ old('ntec-auth-email') }}" class="form-control" id="inputEmail" placeholder="Email">
 							  </div>
 						   </div>
 							<div class="form-group">
 							  <label for="inputPassword" class="col-sm-2 control-label">Password</label>
 							  <div class="col-sm-10">
-							   <input type="password" name="dd-auth-password" class="form-control" id="inputPassword" placeholder="Password">
+							   <input type="password" name="ntec-auth-password" class="form-control" id="inputPassword" placeholder="Password">
 							 </div>
 						   </div>
 							<div class="form-group">
 							 <div class="col-sm-offset-2 col-sm-10">
 							   <div class="checkbox">
 								 <label>
-								   <input type="checkbox" name="dd-auth-remember" value="1"> Remember
+								   <input type="checkbox" name="ntec-auth-remember" value="1"> Remember
 								 </label>
 							   </div>
 							 </div>
 						   </div>
 						   <div class="form-group">
 							<div class="col-sm-12">
-							  <div class="alert alert-danger" id="dd-auth-top-error-msg" style="display:none;" role="alert"><strong>Error:</strong>Login error<br><a href="#">Forgot password?</a></div>
+							  <div class="alert alert-danger" id="ntec-auth-top-error-msg" style="display:none;" role="alert"><strong>Error:</strong>Login error<br><a href="#">Forgot password?</a></div>
 							</div>
 						   </div>
 						   <div class="form-group">
 							 <div class="col-sm-2" >
-							   <div style="display:none;" id="dd-auth-top-ajax-loader"><img src="{{url('pics/ajax-loader.gif')}}"></div>
+							   <div style="display:none;" id="ntec-auth-top-ajax-loader"><img src="{{url('pics/ajax-loader.gif')}}"></div>
 							 </div>
 							 <div class="col-sm-2">
 							  {!! csrf_field() !!}
-							   <button type="submit" class="dd_auth_login_btn btn btn-default" id="dd-auth-top-login-btn">Login</button>
+							   <button type="submit" class="ntec_auth_login_btn btn btn-default" id="ntec-auth-top-login-btn">Login</button>
 
 							 </div>
 							 <div class="col-sm-8">
-							   Don't have an account? <a href="#">Sign Up</a>
+							   Don't have an account? <a href="{{url('/register')}}">Sign Up</a>
 							 </div>
 						   </div>
 						  </form>
@@ -214,6 +217,7 @@
     }
     });
     </script>
+    <script src="{{url('js/ntec.js')}}"></script>
     <script src="{{url('js/ie10-viewport-bug-workaround.js')}}"></script>
   </body>
 </html>

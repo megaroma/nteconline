@@ -71,7 +71,7 @@ public static function get_list($filters,$order,$sort,$page) {
     }    
 
     public function hasRole($check) {
-        return in_array($check, array_fetch($this->roles->toArray(), 'name'));
+        return in_array($check, array_pluck($this->roles->toArray(), 'name'));
     }
 
 }
