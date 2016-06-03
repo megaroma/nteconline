@@ -28,6 +28,10 @@
         padding-top: 50px;
         padding-bottom: 20px;
       }
+	.coursetext {
+    outline: 2px solid #000; /* Чёрная рамка */
+    border: 3px solid #fff; /* Белая рамка */
+	}      
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->

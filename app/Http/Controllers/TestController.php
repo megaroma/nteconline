@@ -21,4 +21,10 @@ class TestController extends Controller
 	}
 
 
+	public function anyCoursepage() {
+		$data = array();
+		return view('coursepage',$data);
+	}
+
+
 }
