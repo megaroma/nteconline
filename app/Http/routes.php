@@ -11,6 +11,10 @@
 |
 */
 
+Route::controller('admin/users', 'Admin\Users');
+Route::controller('admin/roles', 'Admin\Roles');
+Route::controller('admin', 'Admin\Index');
+
 Route::controller('api', 'ApiController');
 Route::controller('test', 'TestController');
 Route::controller('auth', 'NTECAuthController');
