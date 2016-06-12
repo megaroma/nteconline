@@ -26,5 +26,9 @@ class TestController extends Controller
 		return view('coursepage',$data);
 	}
 
+	public function anyCourses() {
+		$data = array();
+		return view('courses',$data);
+	}
 
 }
