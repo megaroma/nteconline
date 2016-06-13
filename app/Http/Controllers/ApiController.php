@@ -9,8 +9,10 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\API\Core as api;
 use App\DB\User_login;
-use App\DB\Package;
-use App\DB\Vault;
+use App\DB\Course;
+use App\DB\Lecture;
+use App\DB\Page;
+
 use Auth;
 
 class ApiController extends Controller
@@ -124,6 +126,81 @@ class ApiController extends Controller
         }
         api::log("Status request result:",$data);
         return response()->json($data);        
+    }
+
+
+    public function anyGetcourses(Request $request) {
+        api::log("Courses request",$_POST);
+        $api_id = $request->input('api_id','');
+        $username = $request->input('email','');
+        $session_id = $request->input('session_id','');
+        if(api::check_status($api_id,$username,$session_id)) {
+            $courses = Course::All();
+            $data = array(
+                'status' => 1,
+                'message' => "Ok",
+                'courses' => $courses,
+                'token' => csrf_token()
+                );                            
+        } else {
+            $data = array(
+                'status' => 2,
+                'message' => "Error",
+                'token' => csrf_token()
+                );                            
+        }
+        api::log("Packages request result:",$data);
+        return response()->json($data);                
+    }
+
+
+   public function anyGetlectures(Request $request) {
+        api::log("Vaults request",$_POST);
+        $api_id = $request->input('api_id','');
+        $username = $request->input('email','');
+        $session_id = $request->input('session_id','');
+        $course_id = $request->input('course_id','');
+
+        if(api::check_status($api_id,$username,$session_id)) {
+            $lectures = Lecture::where('course_id','=',$course_id)->get()->all();
+        $lectures_data = array();
+        foreach($lectures as $l) {
+            $pages = Page::where('lecture_id',$l->id)->get()->all();
+            $pages_data = array();
+            foreach($pages as $p) {
+                $pages_data[] = array(
+                    'name' => $p->name,
+                    'type_id' => $p->type_id,
+                    'url' => $p->url,
+                    'index' => $p->index,
+                    'description' => $p->description
+                    );
+            }
+            $lectures_data[] = array(
+                'id' => $l->id,
+                'course_id' => $l->course_id,
+                'name' => $l->name,
+                'index' => $l->index,
+                'pages' => $pages_data
+                );
+        }
+
+                    
+            $data = array(
+                'status' => 1,
+                'message' => "Ok",
+                'lectures' => $lectures_data,
+                'token' => csrf_token()
+                );                            
+        } else {
+            $data = array(
+                'status' => 2,
+                'message' => "Error",
+                'token' => csrf_token()
+                );                            
+        }
+        api::log("Vaults request result:",$data);
+        return response()->json($data);                
     }
 
     /*
