@@ -23,16 +23,6 @@
 	<link href="{{url('css/carousel.css')}}" rel="stylesheet">
 	<link href="{{url('css/style.css')}}" rel="stylesheet">
 	<link href="{{url('css/font-awesome.css')}}" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 50px;
-        padding-bottom: 20px;
-      }
-	.coursetext {
-    outline: 2px solid #000; /* Чёрная рамка */
-    border: 3px solid #fff; /* Белая рамка */
-	}      
-    </style>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="{{url('js/ie8-responsive-file-warning.js')}}"></script><![endif]-->
@@ -74,9 +64,9 @@
 						</ul>
 					  </li>
 					  @else
-					  <li><a href="{{url('/register')}}">Sign Up</a></li>
+					  <li><a href="{{url('/register')}}" class="menu_header">Sign Up</a></li>
 					  <li class="dropdown" id="menuLogin">
-						<a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+						<a class="dropdown-toggle menu_header" href="#" data-toggle="dropdown" id="navLogin">Login</a>
 						<div class="dropdown-menu" style="width:500px;padding:17px;">
 						  <form class="form-horizontal" id="ntec-auth-top-login-form" action="{{url('/auth/login')}}" method="post">
 							<div class="form-group">
@@ -128,7 +118,7 @@
 		</div>
 		<div class="container">
 			<div class="row">
-			<nav class="navbar navbar-default">
+			<nav class="navbar navbar-default top_menu">
 				<div class="container-fluid">
 				  <div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -137,26 +127,13 @@
 					  <span class="icon-bar"></span>
 					  <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/">NTECOnline</a>
+					<a class="navbar-brand menu_header" href="/">NtecOnline</a>
 				  </div>
 				  <div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-					  <li class="active"><a href="/">Home</a></li>
-					  <li><a href="#">News</a></li>
-					  <li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-						  <li><a href="#">Action</a></li>
-						  <li><a href="#">Another action</a></li>
-						  <li><a href="#">Something else here</a></li>
-						  <li class="divider"></li>
-						  <li class="dropdown-header">Nav header</li>
-						  <li><a href="#">Separated link</a></li>
-						  <li><a href="#">One more separated link</a></li>
-						</ul>
-					  </li>
-					  <li><a href="#">Photo</a></li>
-					  <li><a href="#">Guest Book</a></li>
+					  <li><a href="/" class="menu_header">Home</a></li>
+					  <li><a href="/test/courses" class="menu_header">Courses</a></li>
+					  <li><a href="#" class="menu_header">Contact Us</a></li>
 					</ul>
 
 				  </div><!--/.nav-collapse -->
@@ -178,14 +155,13 @@
 			<img src="{{url('img/Ntec_Logo.png')}}" class="img-responsive" alt="Ntec Logo">
 		</div>
 		<div class="col-md-5 vcenter">
-		<ul class="list-inline">
-		  <li>Menu 1</li>
-		  <li>Menu 2</li>
-		  <li>Menu 3</li>
-		  <li>Menu 4</li>
-		  <li>Menu 5</li>
+		<ul class="list-inline footer_text">
+		  <li><a href="/">Home</a></li>
+		  <li><a href="/test/courses">Courses</a></li>
+		  <li><a href="#">Contact Us</a></li>
 		</ul>
-		<p>&copy; 2015 Company, Inc.</p>
+		<p class="footer_text">&copy; 2016 NTEC Online Education is the unique project, which will help people share and access knowledge.</p>
+		<p class="footer_text">Roman Fominykh, Temirlan Atambayev, Eduard Shcherban</p>
 		</div>
 		<div class="col-md-3 vcenter">
 			  <a class="btn btn-social-icon btn-lg btn-twitter">

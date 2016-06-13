@@ -13,7 +13,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="/img/slide1.jpg" alt="First slide">
+          <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Example headline.</h1>
@@ -55,30 +55,35 @@
 	<h2 class="text-center">New Courses</h2>
 	<div class="container">
 	<div class="row">
-				<div class="product col-sm-6 col-md-4 col-lg-3"><div class="well vcenter"><img src="/img/course1.jpg" alt="Corse 1" width="222"><p class="text-center">Corse 1</p></div></div>
-				<div class="product col-sm-6 col-md-4 col-lg-3"><div class="well vcenter"><img src="/img/course2.jpg" alt="Corse 2" width="222"><p class="text-center">Corse 2</p></div></div>
-				<div class="product col-sm-6 col-md-4 col-lg-3"><div class="well vcenter"><img src="/img/course3.jpg" alt="Corse 3" width="222"><p class="text-center">Corse 3</p></div></div>
-				<div class="product col-sm-6 col-md-4 col-lg-3"><div class="well vcenter"><img src="/img/course4.jpg" alt="Corse 4" width="222"><p class="text-center">Corse 4</p></div></div>
+				<div class="product col-sm-6 col-md-4 col-lg-3 center-block"><div class="well"><img src="/img/course1.jpg" alt="Corse 1" width="222" class="center-block img-rounded img-responsive"><p class="text-center">Corse 1</p></div></div>
+				<div class="product col-sm-6 col-md-4 col-lg-3 center-block"><div class="well"><img src="/img/course2.jpg" alt="Corse 2" width="222" class="center-block img-rounded img-responsive"><p class="text-center">Corse 2</p></div></div>
+				<div class="product col-sm-6 col-md-4 col-lg-3 center-block"><div class="well"><img src="/img/course3.jpg" alt="Corse 3" width="222" class="center-block img-rounded img-responsive"><p class="text-center">Corse 3</p></div></div>
+				<div class="product col-sm-6 col-md-4 col-lg-3 center-block"><div class="well"><img src="/img/course4.jpg" alt="Corse 4" width="222" class="center-block img-rounded img-responsive"><p class="text-center">Corse 4</p></div></div>
 			</div>
 	</div>
-
+	<h2 class="text-center">Our Benefits</h2>
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-md-3">
+		  <img class="img-responsive center-block" src="/img/main_icon1.png" alt="Icon 1" width="180">
+          <h2 class="text-center">CONTENT</h2>
+          <p class="text-center">Take full advantage of our system with huge range of high quality content: video and audio lectures, educational materials.</p>
         </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-md-3">
+		  <img class="img-responsive center-block" src="/img/main_icon2.png" alt="Icon 2"  width="180">
+          <h2 class="text-center">FEEDBACK</h2>
+          <p class="text-center">Acquire real time feedback from our system and tutors by completing assignments, pop-up quizes, and exams.</p>
        </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-md-3">
+		  <img class="img-responsive center-block" src="/img/main_icon3.png" alt="Icon 3"  width="180">
+          <h2 class="text-center">VISUAL</h2>
+          <p class="text-center">Get remarkable experience with simple and adaptive design of our web and mobile application.</p>
+        </div>
+		<div class="col-md-3">
+		  <img class="img-responsive center-block" src="/img/main_icon4.png" alt="Icon 3"  width="180">
+          <h2 class="text-center">LEVEL UP</h2>
+          <p class="text-center">Increase your knowledge and qualification in any desirable field. Level up your skills.</p>
         </div>
       </div>
 	  </div>
