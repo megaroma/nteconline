@@ -58,9 +58,9 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{\Auth::user()->name}} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							@if(\Auth::user()->hasRole('admin'))
-							<li><a href="#" id="ntec-auth-top-admin" data-action="{{url('/admin')}}">Admin Panel</a></li>
+							<li><a href="{{url('/admin')}}" id="ntec-auth-top-admin" data-action="{{url('/admin')}}">Admin Panel</a></li>
 							@endif
-						  	<li><a href="#" id="ntec-auth-top-logout" data-action="{{url('/auth/logout')}}">Logout</a></li>
+						  	<li><a href="{{url('/auth/logout')}}" id="ntec-auth-top-logout" data-action="{{url('/auth/logout')}}">Logout</a></li>
 						</ul>
 					  </li>
 					  @else
@@ -93,6 +93,7 @@
 						   <div class="form-group">
 							<div class="col-sm-12">
 							  <div class="alert alert-danger" id="ntec-auth-top-error-msg" style="display:none;" role="alert"><strong>Error:</strong>Login error<br><a href="#">Forgot password?</a></div>
+							  <div class="alert alert-danger" id="ntec-auth-top-validate-msg" style="display:none;" role="alert"><strong>Error:</strong>Your account is not validated yet.</div>
 							</div>
 						   </div>
 						   <div class="form-group">
@@ -131,9 +132,9 @@
 				  </div>
 				  <div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-					  <li><a href="/" class="menu_header">Home</a></li>
-					  <li><a href="/test/courses" class="menu_header">Courses</a></li>
-					  <li><a href="#" class="menu_header">Contact Us</a></li>
+					  <li><a href="{{url('/')}}" class="menu_header">Home</a></li>
+					  <li><a href="{{url('/courses')}}" class="menu_header">Courses</a></li>
+					  <li><a href="{{url('/contactus')}}" class="menu_header">Contact Us</a></li>
 					</ul>
 
 				  </div><!--/.nav-collapse -->
@@ -197,7 +198,7 @@
     }
     });
     </script>
-    <script src="{{url('js/ntec.js')}}"></script>
+    <script src="{{url('js/ntec.js?v=1')}}"></script>
     <script src="{{url('js/ie10-viewport-bug-workaround.js')}}"></script>
   </body>
 </html>

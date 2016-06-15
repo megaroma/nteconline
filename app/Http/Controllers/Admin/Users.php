@@ -19,38 +19,38 @@ class Users extends CrudController  {
                 'title' => 'ID',
                 'value' => '{id}' 
                 ),      
-			'loginname' => array(
-				'title' => 'Login',
-				'value' => '{loginname}',
-				'editable' => array(
-					'type' => 'input',
-					'validate' => 'required'
-					)				
-				),      
-            'loginpasswdplain' => array(
-                'title' => 'Password',
-                'value' => '{loginpasswdplain}',
-                'editable' => array(
-                    'type' => 'input',
-                    'validate' => 'required'
-                    )               
-                ),        
 			'name' => array(
-				'title' => 'Name',
+				'title' => 'Full Name',
 				'value' => '{name}',
 				'editable' => array(
 					'type' => 'input',
 					'validate' => 'required'
 					)				
-				),
-            'email_address' => array(
+				),      
+            'email' => array(
                 'title' => 'Email',
-                'value' => '{email_address}',
+                'value' => '{email}',
                 'editable' => array(
                     'type' => 'input',
                     'validate' => 'required'
                     )               
                 ),
+            'student_id' => array(
+                'title' => 'Student Id',
+                'value' => '{student_id}',
+                'editable' => array(
+                    'type' => 'input'
+                    )               
+                ),             
+            'validated' => array(
+                'title' => 'Validated',
+                'value' => function ($row) {
+                            return ($row['validated'] == 1) ? '<span class="glyphicon glyphicon-ok"></span>' : '';
+                        },
+                'editable' => array(
+                    'type' => 'checkbox'
+                    )
+                ),           
             'roles' => array(
                 'title' => 'Roles',
                 'value' => '{roles}',
@@ -96,7 +96,7 @@ class Users extends CrudController  {
 
 
         $fn = function ($item)  {
-            $item->loginpasswd =  \Hash::make($item->loginpasswdplain);
+            //$item->loginpasswd =  \Hash::make($item->loginpasswdplain);
         };
 
         Crud::set_callback ('App_User','before_save',$fn);

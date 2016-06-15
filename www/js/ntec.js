@@ -16,6 +16,14 @@ function TopLoginForm() {
 		return true;
 	}
 
+	this.validation_error = function (status) {
+		if(status) {
+			$('#ntec-auth-top-validate-msg').show();
+		} else {
+			$('#ntec-auth-top-validate-msg').hide();
+		}
+	}
+
 	this.show_error = function (status) {
 		if(status) {
 			$('#ntec-auth-top-error-msg').show();
@@ -81,7 +89,10 @@ $( document ).ready(function() {
 			.done(function( data ) {
 				if(data.status == "ok") {
 					tlogin.loading(false);
-					location.reload();
+					window.location = window.location.pathname;
+				} else if(data.status == "not_validated") {
+					tlogin.validation_error(true);
+					tlogin.loading(false);					
 				} else {
 					tlogin.show_error(true);
 					tlogin.loading(false);
@@ -105,7 +116,7 @@ $( document ).ready(function() {
 			})
 			.done(function( data ) {
 				if(data.status == "ok") {
-					location.reload();
+					window.location = data.url;
 				} else {
 					alert("error");
 				}
@@ -115,6 +126,19 @@ $( document ).ready(function() {
 		});
         return false;
     });
+
+
+
+
+		//select type of user
+		$('#registration_form').on('change','.user_role', function (event) {
+			var role = $('input[name=optionsRole]:checked', '#registration_form').val();
+			if(role == "tutor") {
+				$('#student_id_section').hide();
+			} else {
+				$('#student_id_section').show();
+			}
+		});
 
 
 });

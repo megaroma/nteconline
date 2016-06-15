@@ -65,7 +65,7 @@ class Roles extends CrudController  {
         $data['title'] = "Roles"; 
         $data['content'] =  view('Crud::view',$crud_data);
 
-        return view('main',$data);
+        return view('admin.main',$data);
     }
 
 }

@@ -17,7 +17,14 @@ class NTECAuthController extends Controller
     	$remember = $request->has('ntec-auth-remember');
         $data = array();
         if (\Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
-            $data['status'] = "ok";
+            $user = \Auth::user();
+            if($user->validated == "1") {
+                $data['status'] = "ok";
+            } else {
+                \Auth::logout();
+                $data['status'] = "not_validated";
+            }
+
         } else {
             sleep(2);
             $data['status'] = 'error';
@@ -25,10 +32,17 @@ class NTECAuthController extends Controller
         return response()->json($data);
     }
 
-    public function getLogout() {
+    public function getLogout(Request $request) {
         \Auth::logout();
-        $data['status'] = "ok";
-        return response()->json($data);
+            if($request->ajax()){
+                $data['status'] = "ok";
+                $data['url'] = url("/");
+                return response()->json($data);
+            } else {
+                return redirect('/');
+            }
+
+
     }
 
 }

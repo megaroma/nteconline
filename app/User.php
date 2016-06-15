@@ -46,7 +46,7 @@ public static function get_list($filters,$order,$sort,$page) {
     '
     SELECT SQL_CALC_FOUND_ROWS
       *,
-      (select GROUP_CONCAT(r.name) from roles r, users_roles ur where ur.role_id = r.id and ur.user_id = u.id) as roles
+      (select GROUP_CONCAT(r.name) from roles r, role_user ur where ur.role_id = r.id and ur.user_id = u.id) as roles
     FROM
       users u
     WHERE 

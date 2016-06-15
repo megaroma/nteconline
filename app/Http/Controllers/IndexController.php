@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use Validator;
+use App\User;
+use App\DB\Role;
 
 class IndexController extends Controller
 {
@@ -14,10 +15,55 @@ class IndexController extends Controller
 		return view('index',$data);
 	}
 
+	public function postRegister(Request $request) {
+		$data = $request->all();
+		$data['message'] = "";
+   		$data['errors'] = array();
 
-	public function anyRegister() {
-		$data = array();
+     	$validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed|min:6',
+            'student_id' => 'required_if:optionsRole,student'
+        ]);
+
+       if ($validator->fails()) {
+       		$data['errors'] = $validator->errors()->all();
+        } else {
+       		$new_user =  array(
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' =>  \Hash::make($request->input('password')),
+            'student_id' => $request->input('student_id')
+            );
+       		$user = User::create($new_user);
+       		$role = Role::where('name', $request->input('optionsRole'))->first();
+       		$user->roles()->attach($role->id);
+       		$data['message'] = "registrated";
+        }
+
 		return view('register',$data);
+	}
+
+
+	public function getRegister() {
+		if(\Auth::check()) {
+			return redirect('/');
+		}
+		$data = array();
+		$data['email'] = "";
+		$data['name'] = "";
+		$data['optionsRole'] = "student";
+		$data['student_id'] = "";
+		$data['errors'] = array();
+		$data['message'] = "";
+		return view('register',$data);
+	}
+
+
+	public function getContactus() {
+		$data = array();
+		return view('contactus',$data);
 	}
 
 }

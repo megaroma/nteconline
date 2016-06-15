@@ -1,7 +1,7 @@
 <?php
 namespace App\DB;
 
-use Illuminate\Database\Eloquent\Model;
+use DD\Crud\CrudModel as Model;
 
 class Role extends Model {
 

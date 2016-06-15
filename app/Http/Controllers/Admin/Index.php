@@ -10,7 +10,12 @@ class Index extends BaseController {
     }
 
     public function getIndex() {
-    	return "boo";
+
+    	$content_data = array();
+        $data['title'] = "Admin Page"; 
+        $data['content'] =  view('admin.dashboard',$content_data);
+
+        return view('admin.main',$data);
     }
 
 }
