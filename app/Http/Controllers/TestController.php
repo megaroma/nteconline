@@ -32,6 +32,11 @@ class TestController extends Controller
 		$data = array();
 		return view('courses',$data);
 	}
+	
+	public function anyEntolledcourse() {
+		$data = array();
+		return view('entolledcourse',$data);
+	}
 
 
 	public function anyApi() {

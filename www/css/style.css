@@ -47,3 +47,14 @@ border-color: #00569d;
 color: #fecd0b;
 
 }
+
+.vertical-align {
+display: flex;
+align-items: center;
+height: 355px;
+}
+
+.video {
+width: 600px;
+height: 355px;
+}
