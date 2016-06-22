@@ -25,7 +25,7 @@ class CoursesController extends Controller
     public function anySearch($id) {
     	$data = array();
     	$data['categories'] = Category::all();
-    	$data['courses'] = Course::where("category_id","=",$id)->get();
+    	$data['courses'] = Course::categories()->where("id","=",$id)->get();
 		return view('courses',$data);    	
     }
 
