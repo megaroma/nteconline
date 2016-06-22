@@ -6,12 +6,18 @@ use Illuminate\Http\Request;
 use Validator;
 use App\User;
 use App\DB\Role;
+use App\DB\Course;
+use App\DB\Category;
+use App\DB\Lecture;
+use App\DB\Type;
+use App\DB\Page;
 
 class IndexController extends Controller
 {
     
 	public function anyIndex() {
 		$data = array();
+		$data['courses'] = Course::all();
 		return view('index',$data);
 	}
 

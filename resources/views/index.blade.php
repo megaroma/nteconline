@@ -55,10 +55,9 @@
 	<h2 class="text-center">New Courses</h2>
 	<div class="container">
 	<div class="row">
-				<div class="product col-sm-6 col-md-4 col-lg-3 center-block"><div class="well"><img src="/img/course1.jpg" alt="Corse 1" width="222" class="center-block img-rounded img-responsive"><p class="text-center">Corse 1</p></div></div>
-				<div class="product col-sm-6 col-md-4 col-lg-3 center-block"><div class="well"><img src="/img/course2.jpg" alt="Corse 2" width="222" class="center-block img-rounded img-responsive"><p class="text-center">Corse 2</p></div></div>
-				<div class="product col-sm-6 col-md-4 col-lg-3 center-block"><div class="well"><img src="/img/course3.jpg" alt="Corse 3" width="222" class="center-block img-rounded img-responsive"><p class="text-center">Corse 3</p></div></div>
-				<div class="product col-sm-6 col-md-4 col-lg-3 center-block"><div class="well"><img src="/img/course4.jpg" alt="Corse 4" width="222" class="center-block img-rounded img-responsive"><p class="text-center">Corse 4</p></div></div>
+        @for($i=0;$i<4;$i++)
+				<div class="product col-sm-6 col-md-4 col-lg-3 center-block"><div class="well"><img src="{{$courses[$i]->image}}" alt="Corse 1" width="222" class="center-block img-rounded img-responsive"><p class="text-center">{{$courses[$i]->name}}</p></div></div>
+        @endfor
 			</div>
 	</div>
 	<h2 class="text-center">Our Benefits</h2>
