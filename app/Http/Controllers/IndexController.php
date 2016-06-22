@@ -71,21 +71,24 @@ class IndexController extends Controller
 	public function anyContactus(Request $request) {
 		$data = array();
 		$i = array();
-		$i['name'] = $request->input("name","");
-		$i['surname'] = $request->input("surname","");
-		$i['email'] = $request->input("email","");
-		$i['phone'] = $request->input("phone","");
-		$i['message'] = $request->input("message","");
+		$i['f_name'] = $request->input("name","");
+		$i['f_surname'] = $request->input("surname","");
+		$i['f_email'] = $request->input("email","");
+		$i['f_phone'] = $request->input("phone","");
+		$i['f_message'] = $request->input("message","");
+
 
 		$data['sent'] = false;
 
-		if(($i['email'] != "") && ($i['message'] != "")) {
+		if(($i['f_email'] != "") && ($i['f_message'] != "")) {
 
 
-			Mail::send('emails.feedback', $i, function($message)
+			Mail::send('emails.feedback', $i, function($message) use ($i)
 			{
-				$message->from($i['email'], $i['name'].' '.$i['surname']);
-    			$message->to('darkromanovich@gmail.com,ed.sherban@gmail.com')->subject('Feedback from nteconlinecourses.tk');
+				$message->from($i['f_email'], $i['f_name'].' '.$i['f_surname']);
+    			$message->to('darkromanovich@gmail.com',"DD");
+    			$message->to("ed.sherban@gmail.com","Ed");
+    			$message->subject('Feedback from nteconlinecourses.tk');
 			});
 			$data['sent'] = true;
 		}
