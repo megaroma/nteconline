@@ -5,6 +5,11 @@
 <h1 align="center">Contact Us</h1>
 <div class="container">
 
+@if($sent)
+<div class="alert alert-success" role="alert">Your Message Has Been Sent!</div>
+
+@else
+
 <form id="contact-form" method="post" role="form">
 
     <div class="messages"></div>
@@ -59,6 +64,7 @@
     </div>
 
 </form>
+@endif
 
 </div>
 @endsection

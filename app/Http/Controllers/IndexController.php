@@ -77,14 +77,17 @@ class IndexController extends Controller
 		$i['phone'] = $request->input("phone","");
 		$i['message'] = $request->input("message","");
 
+		$data['sent'] = false;
+
 		if(($i['email'] != "") && ($i['message'] != "")) {
 
 
-			Mail::send('emails.feedback', ['key' => 'value'], function($message)
+			Mail::send('emails.feedback', $i, function($message)
 			{
-				$message->from('us@example.com', 'Laravel');
-    			$message->to('darkromanovich@gmail.com', 'John Smith')->subject('Welcome!');
+				$message->from($i['email'], $i['name'].' '.$i['surname']);
+    			$message->to('darkromanovich@gmail.com,ed.sherban@gmail.com')->subject('Feedback from nteconlinecourses.tk');
 			});
+			$data['sent'] = true;
 		}
 
 		return view('contactus',$data);
