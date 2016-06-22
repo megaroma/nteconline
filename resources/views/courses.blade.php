@@ -20,7 +20,9 @@
 		</div>
 		@foreach($courses as $course)
 		<div class="col-md-2 product center-block">
-			<div class="well"><img src="{{$course->image}}" alt="{{$course->name}}" width="222" class="center-block img-rounded img-responsive"><p class="text-center">{{$course->name}}</p></div>
+			<div class="well">
+				<a href="{{url('courses/open/'.$course->id)}}"><img src="{{$course->image}}" alt="{{$course->name}}" width="222" class="center-block img-rounded img-responsive"></a>
+				<p class="text-center">{{$course->name}}</p></div>
 		</div>
 		@endforeach
 	</div>
