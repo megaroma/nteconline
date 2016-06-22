@@ -67,8 +67,15 @@ class IndexController extends Controller
 	}
 
 
-	public function getContactus() {
+	public function getContactus(Request $request) {
 		$data = array();
+/*
+		$ = $request->input("","");
+		$ = $request->input("","");
+		$ = $request->input("","");
+		$ = $request->input("","");
+		$ = $request->input("","");
+*/
 		return view('contactus',$data);
 	}
 

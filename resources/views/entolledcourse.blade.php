@@ -10,6 +10,7 @@
 				@foreach($lectures as $lecture)
 					<li class="list-group-item categoty_menu"><a href="{{url('courses/enrolled/'.$course_id.'/'.$lecture->id)}}" class="text_category_menu">{{$lecture->name}}</a></li>
 				@endforeach
+					<li class="list-group-item categoty_menu"><a href="{{url('courses/enrolled/'.$course_id.'/13')}}" class="text_category_menu">Quiz</a></li>
 				</ul>
 			</div>
 			

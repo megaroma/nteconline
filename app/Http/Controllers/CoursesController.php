@@ -54,6 +54,10 @@ class CoursesController extends Controller
         $data['lecture_id'] = $lecture_id;
         $data['lectures'] = Lecture::where("course_id",$course_id)->get();
 
+        if($lecture_id == 13 ) {
+            return view('quiz',$data);
+        }
+
         $data['pages'] = Page::where("lecture_id",$lecture_id)->get();
 
 

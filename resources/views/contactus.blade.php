@@ -5,7 +5,7 @@
 <h1 align="center">Contact Us</h1>
 <div class="container">
 
-<form id="contact-form" method="post" action="contact.php" role="form">
+<form id="contact-form" method="post" role="form">
 
     <div class="messages"></div>
 
@@ -51,6 +51,7 @@
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
+            {!! csrf_field() !!}
             <div class="col-md-12">
                 <input type="submit" class="btn btn-success btn-send" value="Send message">
             </div>
