@@ -13,7 +13,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+          <img class="second-slide" src="/img/slider1.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Example headline.</h1>
