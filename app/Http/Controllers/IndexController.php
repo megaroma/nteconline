@@ -11,6 +11,7 @@ use App\DB\Category;
 use App\DB\Lecture;
 use App\DB\Type;
 use App\DB\Page;
+use Mail;
 
 class IndexController extends Controller
 {
@@ -67,15 +68,25 @@ class IndexController extends Controller
 	}
 
 
-	public function getContactus(Request $request) {
+	public function anyContactus(Request $request) {
 		$data = array();
-/*
-		$ = $request->input("","");
-		$ = $request->input("","");
-		$ = $request->input("","");
-		$ = $request->input("","");
-		$ = $request->input("","");
-*/
+		$i = array();
+		$i['name'] = $request->input("name","");
+		$i['surname'] = $request->input("surname","");
+		$i['email'] = $request->input("email","");
+		$i['phone'] = $request->input("phone","");
+		$i['message'] = $request->input("message","");
+
+		if(($i['email'] != "") && ($i['message'] != "")) {
+
+
+			Mail::send('emails.feedback', ['key' => 'value'], function($message)
+			{
+				$message->from('us@example.com', 'Laravel');
+    			$message->to('darkromanovich@gmail.com', 'John Smith')->subject('Welcome!');
+			});
+		}
+
 		return view('contactus',$data);
 	}
 
