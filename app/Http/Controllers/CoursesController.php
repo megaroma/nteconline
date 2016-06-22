@@ -31,4 +31,34 @@ class CoursesController extends Controller
 		return view('courses',$data);    	
     }
 
+
+    public function anyOpen($course_id) {
+        session_start();
+    	$data = array();
+        $data['course_id'] = $course_id;
+
+        if(isset($_POST['enrollme'])) {
+            $_SESSION['course'.$course_id] = true;
+        }
+
+
+    	$data['course'] = Course::find($course_id);
+		return view('coursepage',$data);    	
+
+    }
+
+
+    public function anyEnrolled($course_id,$lecture_id = 1) {
+        $data = array();
+        $data['course_id'] = $course_id;
+        $data['lecture_id'] = $lecture_id;
+        $data['lectures'] = Lecture::where("course_id",$course_id)->get();
+
+        $data['pages'] = Page::where("lecture_id",$lecture_id)->get();
+
+
+        return view('entolledcourse',$data);
+    }
+
+
 }
