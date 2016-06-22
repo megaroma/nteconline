@@ -14,7 +14,7 @@
 		<div class="col-md-2 col-md-offset-1">
 			<ul class="list-group">
 				@foreach($categories as $category)
-			  		<li class="list-group-item categoty_menu"><span class="badge">{{$category->countCourses()}}</span><a href="#" class="text_category_menu">{{$category->name}}</a></li>
+			  		<li class="list-group-item categoty_menu"><span class="badge">{{$category->countCourses()}}</span><a href="{{url('course/'.$category->id)}}" class="text_category_menu">{{$category->name}}</a></li>
 			  	@endforeach
 			</ul>
 		</div>
