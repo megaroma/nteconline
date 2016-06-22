@@ -15,9 +15,8 @@
           <img class="second-slide" src="/img/slider2.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              <h1>Learn anytime, anywhere.</h1>
+              <p><a class="btn btn-lg btn-primary" href="/register" role="button">Sign up today</a></p>
             </div>
           </div>
         </div>
@@ -25,9 +24,8 @@
           <img class="second-slide" src="/img/slider1.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              <h1>Best Courses.</h1>
+              <p><a class="btn btn-lg btn-primary" href="/register" role="button">Learn more</a></p>
             </div>
           </div>
         </div>
@@ -44,9 +42,10 @@
 	<h2 class="text-center">New Courses</h2>
 	<div class="container">
 	<div class="row">
-        @for($i=0;$i<4;$i++)
-				<div class="product col-sm-6 col-md-4 col-lg-3 center-block"><div class="well"><img src="{{$courses[$i]->image}}" alt="Corse 1" width="222" class="center-block img-rounded img-responsive"><p class="text-center">{{$courses[$i]->name}}</p></div></div>
-        @endfor
+				<div class="product col-sm-6 col-md-4 col-lg-3 center-block"><div class="well"><img src="/img/course1.jpg" alt="Corse 1" width="222" class="center-block img-rounded img-responsive"><p class="text-center">Corse 1</p></div></div>
+				<div class="product col-sm-6 col-md-4 col-lg-3 center-block"><div class="well"><img src="/img/course2.jpg" alt="Corse 2" width="222" class="center-block img-rounded img-responsive"><p class="text-center">Corse 2</p></div></div>
+				<div class="product col-sm-6 col-md-4 col-lg-3 center-block"><div class="well"><img src="/img/course3.jpg" alt="Corse 3" width="222" class="center-block img-rounded img-responsive"><p class="text-center">Corse 3</p></div></div>
+				<div class="product col-sm-6 col-md-4 col-lg-3 center-block"><div class="well"><img src="/img/course4.jpg" alt="Corse 4" width="222" class="center-block img-rounded img-responsive"><p class="text-center">Corse 4</p></div></div>
 			</div>
 	</div>
 	<h2 class="text-center">Our Benefits</h2>
