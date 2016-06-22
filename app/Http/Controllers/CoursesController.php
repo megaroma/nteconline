@@ -20,4 +20,13 @@ class CoursesController extends Controller
     	$data['courses'] = Course::all();
 		return view('courses',$data);
     }
+
+
+    public function anySearch($id) {
+    	$data = array();
+    	$data['categories'] = Category::all();
+    	$data['courses'] = Course::where("category_id","=",$id)->get();
+		return view('courses',$data);    	
+    }
+
 }
