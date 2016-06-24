@@ -118,10 +118,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-      <div class="center-block"> 
+    <div class="col-md-3 col-md-offset-3">
+
       <iframe width="560" height="315" src="https://www.youtube.com/embed/p3M6_wKTSAE" frameborder="0" allowfullscreen></iframe>
-      </div>
     </div>
   </div>
 </div>
