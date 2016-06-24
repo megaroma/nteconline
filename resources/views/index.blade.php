@@ -119,9 +119,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-    <p class="text-center">
+      <div class="center-block"> 
       <iframe width="560" height="315" src="https://www.youtube.com/embed/p3M6_wKTSAE" frameborder="0" allowfullscreen></iframe>
-      </p>
+      </div>
     </div>
   </div>
 </div>
