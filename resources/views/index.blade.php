@@ -126,4 +126,6 @@
 </div>
 
 
+<canvas id="canvas" width="600" height="160" style="background-color:#FFFFFF"></canvas>
+
 @endsection

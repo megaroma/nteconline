@@ -200,5 +200,50 @@
     </script>
     <script src="{{url('js/ntec.js?v=1')}}"></script>
     <script src="{{url('js/ie10-viewport-bug-workaround.js')}}"></script>
+	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+	<script src="{{url('js/banner.js')}}"></script>
+	<script type="text/javascript">
+var canvas, stage, exportRoot;
+function init() {
+	// --- write your JS code here ---
+	
+	canvas = document.getElementById("canvas");
+	images = images||{};
+	ss = ss||{};
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadFile({src:"images/banner_atlas_.json", type:"spritesheet", id:"banner_atlas_"}, true);
+	loader.loadManifest(lib.properties.manifest);
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete(evt) {
+	var queue = evt.target;
+	ss["banner_atlas_"] = queue.getResult("banner_atlas_");
+	exportRoot = new lib.banner();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+	stage.enableMouseOver();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+
+
+
+		$( document ).ready(function() {
+			init();
+
+		});
+
+	</script>
+
   </body>
 </html>
