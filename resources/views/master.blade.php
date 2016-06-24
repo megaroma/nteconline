@@ -160,6 +160,7 @@
 		  <li><a href="/">Home</a></li>
 		  <li><a href="/test/courses">Courses</a></li>
 		  <li><a href="#">Contact Us</a></li>
+		  <li><a href="https://www.edx.org">EDX</a></li>
 		</ul>
 		<p class="footer_text">&copy; 2016 NTEC Online Education is the unique project, which will help people share and access knowledge.</p>
 		<p class="footer_text">Roman Fominykh, Temirlan Atambayev, Eduard Shcherban</p>
