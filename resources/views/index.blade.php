@@ -77,9 +77,13 @@
       </a>
     </div><!-- /.carousel -->
 
-<p>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/p3M6_wKTSAE" frameborder="0" allowfullscreen></iframe>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/p3M6_wKTSAE" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
 
 <h2 class="text-center">New Courses</h2>
   <div class="container">
