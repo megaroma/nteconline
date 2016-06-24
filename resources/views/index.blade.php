@@ -126,6 +126,16 @@
 </div>
 
 
-<canvas id="canvas" width="600" height="160" style="background-color:#FFFFFF"></canvas>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-md-offset-3">
+
+      <canvas id="canvas" width="600" height="160" style="background-color:#FFFFFF"></canvas>
+      
+    </div>
+  </div>
+</div>
+
+
 
 @endsection
