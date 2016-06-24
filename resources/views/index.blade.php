@@ -12,7 +12,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="second-slide" src="/img/slider2.jpg" alt="Second slide">
+          <img class="second-slide" src="/img/pic1.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Learn anytime, anywhere.</h1>
@@ -23,7 +23,7 @@
  
 
         <div class="item">
-          <img class="second-slide" src="/img/slider1.jpg" alt="Second slide">
+          <img class="second-slide" src="/img/pic2.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Best Courses.</h1>
@@ -34,15 +34,34 @@
 
 
         <div class="item">
-          <img class="third-slide" src="/img/slider1.jpg" alt="Third slide">
+          <img class="third-slide" src="/img/pic3.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Learn Everywhere.</h1>
+              <h1>Best Courses.</h1>
               <p><a class="btn btn-lg btn-primary" href="/register" role="button">Learn more</a></p>
             </div>
           </div>
         </div>
 
+        <div class="item">
+          <img class="fourth-slide" src="/img/pic4.jpg" alt="Fourth slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Best Courses.</h1>
+              <p><a class="btn btn-lg btn-primary" href="/register" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <img class="Fifth-slide" src="/img/pic5.jpg" alt="Fifth slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Best Courses.</h1>
+              <p><a class="btn btn-lg btn-primary" href="/register" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>        
 
       </div>
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
