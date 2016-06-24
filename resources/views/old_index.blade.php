@@ -20,8 +20,6 @@
             </div>
           </div>
         </div>
- 
-
         <div class="item">
           <img class="second-slide" src="/img/slider1.jpg" alt="Second slide">
           <div class="container">
@@ -31,19 +29,6 @@
             </div>
           </div>
         </div>
-
-
-        <div class="item">
-          <img class="third-slide" src="/img/slider1.jpg" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Learn Everywhere.</h1>
-              <p><a class="btn btn-lg btn-primary" href="/register" role="button">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-
-
       </div>
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
